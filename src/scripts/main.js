@@ -36,7 +36,8 @@ const promise2 = new Promise((resolve, reject) => {
     em.preventDefault();
 
     if (em.button === 2) {
-      resolve('Second promise was resolved Right');
+      // eslint-disable-next-line prefer-promise-reject-errors
+      reject('Second promise was resolved Right');
     }
   });
 });
@@ -56,7 +57,7 @@ const promise3 = new Promise((resolve, reject) => {
   document.addEventListener('contextmenu', (em) => {
     em.preventDefault();
 
-    if (em) {
+    if (em.button === 2) {
       isClickedRight = true;
       check();
     }
